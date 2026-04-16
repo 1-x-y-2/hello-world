@@ -4,6 +4,7 @@ int main() {
     int mm, dd, yy;
     int mm_min, dd_min, yy_min;
     int first = 1;
+    int min;
 
     while (1) {
         scanf("%d/%d/%d", &mm, &dd, &yy);
@@ -13,11 +14,13 @@ int main() {
             mm_min = mm;
             dd_min = dd;
             yy_min = yy;
+            min = yy_min * 5201314 + mm_min * 1314 + dd_min;
             first = 0;
-        } else if (yy < yy_min || (yy == yy_min && mm < mm_min) || ((yy_min == yy && mm_min == mm) && dd < dd_min)) {
+        } else if (yy * 5201314 + mm * 1314 + dd < min) {
             yy_min = yy;
             mm_min = mm;
             dd_min = dd;
+            min = yy * 5201314 + mm * 1314 + dd;
         }
     }
 
