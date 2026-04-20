@@ -21,6 +21,7 @@ long htoi(char s[]) {
   long n = 0;
 
   for (int i = 0; s[i] != '\0'; ++i) {
+    if (s[i] == '0' || s[i] == 'x' || s[i] == 'X') printf("%c", s[i]);
     if (s[i] >= 'a' && s[i] <= 'f' || s[i] >= 'A' && s[i] <= 'Z') {
       s[i] = (char)lower(s[i]);
       n = add_two_num(s[i], n);
@@ -29,10 +30,10 @@ long htoi(char s[]) {
     }
   }
   return n;
-}
+ }
 
 int main(void) {
-  char s[] = {'1', '2', '3', '\0'};
+  char s[] = {'0', 'x', '1', '2', '3', 'a', 'b', 'c', '\0'};
   printf("%ld\n", htoi(s));
   return 0;
 }
