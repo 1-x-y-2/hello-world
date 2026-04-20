@@ -23,13 +23,16 @@ long htoi(char s[]) {
   for (int i = 0; s[i] != '\0'; ++i) {
     if (s[i] >= 'a' && s[i] <= 'f' || s[i] >= 'A' && s[i] <= 'Z') {
       s[i] = (char)lower(s[i]);
+      n = add_two_num(s[i], n);
+    } else if (s[i] >= '0' && s[i] <= '9') {
+      n = 10 * n + (int) (s[i] - '0');
     }
   }
   return n;
 }
 
 int main(void) {
-  char s[] = {'A', 'B', 'C', '\0'};
+  char s[] = {'1', '2', '3', '\0'};
   printf("%ld\n", htoi(s));
   return 0;
 }
