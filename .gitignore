@@ -29,3 +29,6 @@ bin/
 ehthumbs.db
 Thumbs.db
 .clangd
+
+# Text files
+*.txt
