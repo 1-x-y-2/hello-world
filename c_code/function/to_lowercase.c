@@ -2,14 +2,10 @@
 #include <stdio.h>
 
 int lower(int c) {
-  if (c >= 'A' && c <= 'Z') {
-    return c + 'a' - 'A';
-  } else {
-    return c;
-  }
+  return c >= 'A' && c <= 'Z' ? c + 'a' - 'A' : c;
 }
 
 int main(void) {
-  printf("%c\n", lower('A'));
+  printf("%c\n", lower('C'));
   return 0;
 }
