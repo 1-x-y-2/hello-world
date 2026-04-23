@@ -1,25 +1,35 @@
 #include <stdio.h>
 
 int main(void) {
-	int m, n;
-	scanf("%d %d", &m, &n);
-	int cnt = 0, sum = 0;
-	int flag;
-
-	for (int i = m; i <= n; i++) {
-		flag = 0;
-		for (int j = 2; j * j <= i; j++) {
-			if (i % j == 0) {
-				flag = 1;
-				break;
+	int rn, n;
+	int gs;
+	int cnt = 0;
+	scanf("%d %d", &rn, &n);
+	int i;
+	int flag = 1;
+	for (i = 0; i < n; i++) {
+		scanf("%d", &gs);
+		cnt++;
+		if (gs < 0) {
+			printf("Game Over\n");
+			break;
+		} else if (gs < rn) {
+			printf("Too small\n");
+		} else if (gs > rn) {
+			printf("Too big\n");
+		} else {
+			flag = 0;
+			if (cnt == 1) {
+				printf("Bingo!\n");
+			} else if (cnt <= 3) {
+				printf("Lucky You!\n");
+			} else {
+				printf("Good Guess!\n");
 			}
-		}
-		if ((!flag) && i != 1) {
-			++cnt;
-			sum += i;
+			break;
 		}
 	}
-
-	printf("%d %d\n", cnt, sum);
+	if (i == n && flag) 
+		printf("Game Over\n");
 	return 0;
 }
