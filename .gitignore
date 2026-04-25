@@ -3,6 +3,7 @@
 *.out
 *.app
 /main
+/in
 
 # Object files
 *.o
