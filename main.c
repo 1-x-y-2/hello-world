@@ -1,20 +1,25 @@
 #include <stdio.h>
 
-int main() {
-  const int LEN = 5;
-  int ns[LEN];
-  int n;
-  // scanf("%d", n);
-  int flag = 0;
+int exist(int n, int ns[], int len);
 
-  for (int i = 0; i < LEN; i++) {
-    if (ns[i] == n)
-      flag = 1;
-  }
-  if (flag) 
-    printf("Yes\n");
-  else 
+int main() {
+  int ns[] = {1, 2, 3, 4, 5, 6};
+  int len = sizeof(ns) / sizeof(ns[0]);
+  int n;
+  scanf("%d", &n);
+  int ans = exist(n, ns, len);
+  if (ans == -1) 
     printf("No\n");
+  else 
+    printf("%d\n", ans);
   return 0;
 
+}
+
+int exist(int n, int ns[], int len) {
+  for (int i = 0; i < len; i++) {
+    if (ns[i] == n)
+      return i;
+  }
+  return -1;
 }
