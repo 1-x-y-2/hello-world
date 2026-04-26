@@ -4,6 +4,7 @@
 *.app
 /main
 /in
+/out
 
 # Object files
 *.o
