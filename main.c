@@ -1,25 +1,47 @@
 #include <stdio.h>
 
-int exist(int n, int ns[], int len);
-
+int judge(int n);
 int main() {
-  int ns[] = {1, 2, 3, 4, 5, 6};
-  int len = sizeof(ns) / sizeof(ns[0]);
+  int g[3][3];
   int n;
-  scanf("%d", &n);
-  int ans = exist(n, ns, len);
-  if (ans == -1) 
-    printf("No\n");
-  else 
-    printf("%d\n", ans);
-  return 0;
 
-}
-
-int exist(int n, int ns[], int len) {
-  for (int i = 0; i < len; i++) {
-    if (ns[i] == n)
-      return i;
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      scanf("%d", &n);
+      g[i][j] = n;
+    }
   }
-  return -1;
+
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      printf("%d ", g[i][j]);
+    }
+    printf("\n");
+  }
+
+  int x = 0;
+  int y = 0;
+  int z = 0;
+  int f = 0;
+  for (int i = 0, e = 2; i < 3; i++, e--) {
+    z += g[i][i];
+    f += g[i][e];
+    for (int j = 0; j < 3; j++) {      
+      x += g[i][j];
+      y += g[j][i];
+    }
+    if (judge(x) == 1 || judge(y) == 0)
+      break;
+    x = 0;
+    y = 0;
+  }
+  return 0;
+}
+int judge(int n) {
+  if (n == 3) {
+    printf("X");
+    return 1;
+  } else if (n == 0) {
+    
+  }
 }
