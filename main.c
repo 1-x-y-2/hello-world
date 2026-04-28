@@ -1,24 +1,33 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-int main() {
-  char greeting[50] = "Hello";
-  char name[20];
+int main(void) {
+  int *p = (int*)calloc(10, sizeof(int));
+  if (p == NULL)
+    exit(1);
 
-  scanf("%s", name);
+  int *tmp = (int*)realloc(p, 20 * sizeof(*p));
 
-  strcat(greeting, ", ");
-  strcat(greeting, name);
-  strcat(greeting, "!");
-  
-  printf("%s\n", greeting);
+  if (tmp != NULL) {
+    p = tmp;
+  } else {
+    exit(1);
+  }
 
-  printf("len=%d\n", strlen(greeting));
+  int n = 10;
+  int d;
 
-  if (strcmp(name, "xy") == 0)
-    printf("Yes\n");
-  else
-    printf("No\n");
+  for (int i = n; i < n + 10; i++) {
+    scanf("%d", &d);
+    p[i] = d;
+    
+  }
 
+  for (int i = 0; i < n + 10; i++) {
+    printf("%d ", p[i]);
+  }
+
+  free(p);
+  p = NULL;
   return 0;
 }
