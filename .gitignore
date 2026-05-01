@@ -3,8 +3,9 @@
 *.out
 *.app
 /main
-/in
+in
 /out
+/mold
 
 # Object files
 *.o
